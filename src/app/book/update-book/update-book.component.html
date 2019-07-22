@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/offcanvas/">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<form class="form-horizontal" #bookForm="ngForm">
+  <div class="form-group">
+    <label for="author" class="col-md-2 col-sm-3 col-xs-12 control-label">Book author</label>
+    <div class="col-md-5 col-sm-9 col-xs-12">
+      <input type="text" class="form-control" pattern="^[A-Za-z0-9.? ?A-Za-z0-9]{5,30}$"
+             [(ngModel)]= book.author id="author" name="author" #author="ngModel"
+             required autocomplete="off">
+      <div *ngIf="author.errors && (author.dirty || author.touched)" class="alert alert-danger">
+        <div [hidden]="!author.errors.required">Book author is required!</div>
+        <div [hidden]="!author.errors.pattern">
+          Book author can only contain letters and numbers (5-30 characters)!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="genre" class="col-md-2 col-sm-3 col-xs-12 control-label">Genre</label>
+    <div class="col-md-5 col-sm-9 col-xs-12">
+      <input type="text" class="form-control" pattern="^[A-Za-z0-9? ?A-Za-z0-9]{2,15}$"
+             [(ngModel)]="book.genre" placeholder="Genre" id="genre" name="genre" #genre="ngModel"
+             required autocomplete="off">
+      <div *ngIf="genre.errors && (genre.dirty || genre.touched)" class="alert alert-danger">
+        <div [hidden]="!genre.errors.required">Genre is required!</div>
+        <div [hidden]="!genre.errors.pattern">
+          Genre can only contain letters and numbers (2-15 characters)!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="publDate" class="col-md-2 col-sm-3 col-xs-12 control-label">Publication date</label>
+    <div class="col-md-5 col-sm-9 col-xs-12">
+      <input type="text" class="form-control" pattern="^[0-9]{4}$"
+             [(ngModel)]="book.publicationDate" placeholder="Publication date" id="publDate" name="publDate" #publDate="ngModel"
+             required autocomplete="off">
+      <div *ngIf="publDate.errors && (publDate.dirty || publDate.touched)" class="alert alert-danger">
+        <div [hidden]="!publDate.errors.required">Publication date is required!</div>
+        <div [hidden]="!publDate.errors.pattern">
+          Publication date can only contain numbers!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="title" class="col-md-2 col-sm-3 col-xs-12 control-label">Book title</label>
+    <div class="col-md-5 col-sm-9 col-xs-12">
+      <input type="text" class="form-control" pattern="^[A-Za-z0-9? ?A-Za-z0-9]{2,150}$"
+             [(ngModel)]="book.title" placeholder="Book title" id="title" name="title" #title="ngModel"
+             required autocomplete="off">
+      <div *ngIf="title.errors && (title.dirty || title.touched)" class="alert alert-danger">
+        <div [hidden]="!title.errors.required">Book title is required!</div>
+        <div [hidden]="!title.errors.pattern">
+          Book title can only contain letters and numbers (2-150 characters)!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="!bookForm.form.valid" class="btn btn-primary"
+            (click)="updateBook()">Update</button>
+  </div>
+</form>
+</body>
+</html>

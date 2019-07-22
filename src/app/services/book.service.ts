@@ -1,6 +1,5 @@
-import {Inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-// import {APP_CONFIG, IAppConfig} from '../app.config';
 import {Observable} from 'rxjs';
 import {Book} from '../models/book.model';
 
@@ -31,5 +30,9 @@ export class BookService {
 
   public createBook(book: any) {
     return this.http.post<Book>(this.bookUrl + '/create', book, httpOptions);
+  }
+
+  public updateBook(book: any) {
+    return this.http.put<Book>(this.bookUrl + '/update', book, httpOptions);
   }
 }

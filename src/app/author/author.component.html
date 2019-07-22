@@ -9,29 +9,23 @@
   <thead class="thead-dark">
   <tr>
     <th>#</th>
-    <th>Author</th>
-    <th>Genre</th>
-    <th>Publication date</th>
+    <th>Name</th>
+    <th>Surname</th>
     <th>Book title</th>
     <th colspan="2" align="center" width="fit-content"></th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let book of books">
+  <tr *ngFor="let author of authors">
     <td></td>
-    <td><a routerLink="/authors">{{book.author}}</a></td>
-    <td>{{book.genre}}</td>
-    <td>{{book.publicationDate}}</td>
-    <td>{{book.title}}</td>
-    <td><button class="btn btn-info" routerLink="/updateBook" type="submit">Edit</button></td>
-    <td><button class="btn btn-danger" type="submit" (click)="deleteById(book)">Delete</button></td>
+    <td>{{author.name}}</td>
+    <td>{{author.surname}}</td>
+    <td><a routerLink="/books">{{author.books}}</a></td>
+    <td><button class="btn btn-info" routerLink="/updateAuthor" type="submit">Edit</button></td>
+    <td><button class="btn btn-danger" type="submit" (click)="deleteById(author)">Delete</button></td>
   </tr>
   </tbody>
 </table>
-<button class="btn btn-success" routerLink="/createBook" type="submit">Create new book</button>
+<button class="btn btn-success" routerLink="/createAuthor" type="submit">Create new author</button>
 </body>
 </html>
-
-
-
-
