@@ -2,7 +2,7 @@ export class Book {
 
   bookId: BigInteger;
 
-  titleBook: string;
+  title: string;
 
   author: string;
 

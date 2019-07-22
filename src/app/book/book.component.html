@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Library</title>
+</head>
+<body>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+  <tr>
+    <th>#</th>
+    <th>Author</th>
+    <th>Genre</th>
+    <th>Publication date</th>
+    <th>Book title</th>
+    <th colspan="2" align="center" width="fit-content"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books">
+    <td></td>
+    <td>{{book.author}}</td>
+    <td>{{book.genre}}</td>
+    <td>{{book.publicationDate}}</td>
+    <td>{{book.title}}</td>
+    <td><button class="btn btn-info" type="submit">Edit</button></td>
+    <td><button class="btn btn-danger" type="submit" (click)="deleteById(book)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
+<button class="btn btn-success" routerLink="/createBook" type="submit">Create new book</button>
+</body>
+</html>
+
+
+
+
