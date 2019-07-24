@@ -27,6 +27,7 @@ export class BookComponent implements OnInit {
   }
 
   deleteById(book: Book): void {
+
     this.bookService.deleteById(book)
       .subscribe(() => {
         console.log('book deleted');

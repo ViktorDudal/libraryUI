@@ -20,6 +20,7 @@
       <input type="text" class="form-control" pattern="^[A-Za-z0-9.? ?A-Za-z0-9]{5,30}$"
              [(ngModel)]= book.author id="author" name="author" #author="ngModel"
              required autocomplete="off">
+      <label>{{book.author}}</label>
       <div *ngIf="author.errors && (author.dirty || author.touched)" class="alert alert-danger">
         <div [hidden]="!author.errors.required">Book author is required!</div>
         <div [hidden]="!author.errors.pattern">

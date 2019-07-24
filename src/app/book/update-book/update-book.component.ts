@@ -17,7 +17,14 @@ export class UpdateBookComponent implements OnInit {
 
   ngOnInit() {
     const bookId = this.route.snapshot.paramMap.get('bookId');
+    console.log('------------Find bookId----------')
     console.log(bookId);
+    if (bookId !== null) {
+      this.bookService.findBookById(bookId)
+        .subscribe(data => {
+          this.book = data;
+        });
+    }
   }
 
   updateBook() {

@@ -24,15 +24,19 @@ export class BookService {
     return this.http.get<Book[]>(this.bookUrl + '/all', httpOptions);
   }
 
-  public deleteById(book: any) {
+  public deleteById(book: Book) {
     return this.http.delete(this.bookUrl + '/delete/' + book.bookId, httpOptions);
   }
 
-  public createBook(book: any) {
+  public createBook(book: Book) {
     return this.http.post<Book>(this.bookUrl + '/create', book, httpOptions);
   }
 
-  public updateBook(book: any) {
+  public updateBook(book: Book) {
     return this.http.put<Book>(this.bookUrl + '/update', book, httpOptions);
+  }
+
+  public findBookById(bookId: any) {
+    return this.http.get<Book>(this.bookUrl + '/byId/' + bookId, httpOptions);
   }
 }
