@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Author} from '../../models/author.model';
 import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AuthorService} from '../../services/author.service';
 
 @Component({
@@ -13,16 +13,29 @@ export class AddAuthorComponent implements OnInit {
 
   author: Author = new Author();
 
-  constructor(public http: HttpClient, private authorService: AuthorService, private router: Router) { }
+  constructor(public http: HttpClient, private authorService: AuthorService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    const activeAuthor = this.route.snapshot.paramMap.get('authorId');
+    if (activeAuthor != null) {
+      this.authorService.findAuthorById(activeAuthor)
+        .subscribe(data => {
+          this.author = data;
+        });
+    }
   }
 
   createAuthor() {
-    console.log(this.author)
-    this.authorService.createAuthor(this.author).subscribe(data => {
+    this.authorService.createAuthor(this.author)
+      .subscribe(data => {
       this.router.navigate(['authors']);
     });
   }
 
+  updateAuthor() {
+    this.authorService.updateAuthor(this.author)
+      .subscribe(data => {
+        this.router.navigate(['authors']);
+      });
+  }
 }

@@ -5,6 +5,7 @@
   <title>Library</title>
 </head>
 <body>
+<button class="btn btn-success" routerLink="/createAuthor" type="submit">Create new author</button>
 <table class="table table-striped table-bordered table-hover">
   <thead class="thead-dark">
   <tr>
@@ -21,11 +22,10 @@
     <td>{{author.name}}</td>
     <td>{{author.surname}}</td>
     <td><a routerLink="/books">{{author.books}}</a></td>
-    <td><button class="btn btn-info" routerLink="/updateAuthor" type="submit">Edit</button></td>
+    <td><button class="btn btn-info" routerLink="/updateAuthor/{{author.authorId}}" type="submit">Edit</button></td>
     <td><button class="btn btn-danger" type="submit" (click)="deleteById(author)">Delete</button></td>
   </tr>
   </tbody>
 </table>
-<button class="btn btn-success" routerLink="/createAuthor" type="submit">Create new author</button>
 </body>
 </html>

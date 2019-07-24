@@ -24,15 +24,19 @@ export class AuthorService {
     return this.http.get<Author[]>(this.authorUrl + '/all', httpOptions);
   }
 
-  public deleteById(author: any) {
+  public deleteById(author: Author) {
     return this.http.delete(this.authorUrl + '/delete/' + author.authorId, httpOptions);
   }
 
-  public createAuthor(author: any) {
+  public createAuthor(author: Author) {
     return this.http.post<Author>(this.authorUrl + '/create', author, httpOptions);
   }
 
-  public updateAuthor(author: any) {
+  public updateAuthor(author: Author) {
     return this.http.put<Author>(this.authorUrl + '/update', author, httpOptions);
+  }
+
+  public findAuthorById(authorId: any) {
+    return this.http.get<Author>(this.authorUrl + '/byId/' + authorId, httpOptions);
   }
 }

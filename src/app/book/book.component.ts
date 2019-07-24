@@ -21,7 +21,6 @@ export class BookComponent implements OnInit {
 
   getAllBooks() {
     this.bookService.getAllBooks().subscribe((data: Book[]) => {
-      console.log(data);
       this.books = data;
     });
   }
@@ -30,7 +29,6 @@ export class BookComponent implements OnInit {
 
     this.bookService.deleteById(book)
       .subscribe(() => {
-        console.log('book deleted');
       });
     window.location.reload();
   }

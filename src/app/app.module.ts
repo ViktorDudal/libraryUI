@@ -8,20 +8,17 @@ import { BookComponent } from './book/book.component';
 import { BookService } from './services/book.service';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { FormsModule } from '@angular/forms';
-import { UpdateBookComponent } from './book/update-book/update-book.component';
 import { AuthorComponent } from './author/author.component';
 import { AddAuthorComponent } from './author/add-author/add-author.component';
-import { UpdateAuthorComponent } from './author/update-author/update-author.component';
+import { AuthorService } from './services/author.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
     AddBookComponent,
-    UpdateBookComponent,
     AuthorComponent,
-    AddAuthorComponent,
-    UpdateAuthorComponent
+    AddAuthorComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +26,7 @@ import { UpdateAuthorComponent } from './author/update-author/update-author.comp
     HttpClientModule,
     FormsModule
   ],
-  providers: [BookService],
+  providers: [BookService, AuthorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

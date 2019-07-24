@@ -17,7 +17,6 @@ export class AddBookComponent implements OnInit {
 
   ngOnInit() {
     const activeBook = this.route.snapshot.paramMap.get('bookId');
-    console.log(activeBook);
     if (activeBook != null) {
       this.bookService.findBookById(activeBook)
         .subscribe(data => {
@@ -27,7 +26,8 @@ export class AddBookComponent implements OnInit {
   }
 
   createBook() {
-    this.bookService.createBook(this.book).subscribe(data => {
+    this.bookService.createBook(this.book)
+      .subscribe(data => {
       this.router.navigate(['books']);
     });
   }

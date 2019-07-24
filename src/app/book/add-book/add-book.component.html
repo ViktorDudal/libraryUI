@@ -18,13 +18,13 @@
 <div class="form-group">
   <label for="author" class="col-md-2 col-sm-3 col-xs-12 control-label">Book author</label>
   <div class="col-md-5 col-sm-9 col-xs-12">
-    <input type="text" class="form-control" pattern="^[A-Za-z0-9.? ?A-Za-z0-9]{5,30}$"
+    <input type="text" class="form-control" pattern="^[A-Za-z0-9.? ?A-Za-z0-9]{5,25}$"
            [(ngModel)]="book.author" placeholder="Book author" id="author" name="author" #author="ngModel"
            required autocomplete="off">
     <div *ngIf="author.errors && (author.dirty || author.touched)" class="alert alert-danger">
       <div [hidden]="!author.errors.required">Book author is required!</div>
       <div [hidden]="!author.errors.pattern">
-        Book author can only contain letters and numbers (5-30 characters)!
+        Book author can only contain letters and numbers (5-25 characters)!
       </div>
     </div>
   </div>
@@ -32,13 +32,13 @@
 <div class="form-group">
   <label for="genre" class="col-md-2 col-sm-3 col-xs-12 control-label">Genre</label>
   <div class="col-md-5 col-sm-9 col-xs-12">
-    <input type="text" class="form-control" pattern="^[A-Za-z0-9? ?A-Za-z0-9]{2,15}$"
+    <input type="text" class="form-control" pattern="^[A-Za-z0-9? ?A-Za-z0-9]{2,25}$"
            [(ngModel)]="book.genre" placeholder="Genre" id="genre" name="genre" #genre="ngModel"
            required autocomplete="off">
     <div *ngIf="genre.errors && (genre.dirty || genre.touched)" class="alert alert-danger">
       <div [hidden]="!genre.errors.required">Genre is required!</div>
       <div [hidden]="!genre.errors.pattern">
-        Genre can only contain letters and numbers (2-15 characters)!
+        Genre can only contain letters and numbers (2-25 characters)!
       </div>
     </div>
   </div>

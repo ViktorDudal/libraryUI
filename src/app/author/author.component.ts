@@ -21,7 +21,6 @@ export class AuthorComponent implements OnInit {
 
   getAllAuthors() {
     this.authorService.getAllAuthors().subscribe((data: Author[]) => {
-      console.log(data);
       this.authors = data;
     });
   }
@@ -29,7 +28,6 @@ export class AuthorComponent implements OnInit {
   deleteById(author: Author): void {
     this.authorService.deleteById(author)
       .subscribe(() => {
-        console.log('author deleted');
       });
     window.location.reload();
   }

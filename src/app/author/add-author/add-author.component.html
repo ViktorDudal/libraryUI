@@ -14,16 +14,17 @@
 </head>
 <body>
 <form class="form-horizontal" #authorForm="ngForm">
+  <fieldset class="fieldset">
   <div class="form-group">
     <label for="name" class="col-md-2 col-sm-3 col-xs-12 control-label">Author name</label>
     <div class="col-md-5 col-sm-9 col-xs-12">
-      <input type="text" class="form-control" pattern="^[A-Za-z0-9]{3,15}$"
+      <input type="text" class="form-control" pattern="^[A-Za-z0-9]{3,25}$"
              [(ngModel)]="author.name" placeholder="Author name" id="name" name="name" #name="ngModel"
              required autocomplete="off">
       <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
         <div [hidden]="!name.errors.required">Author name is required!</div>
         <div [hidden]="!name.errors.pattern">
-          Author name can only contain letters and numbers (3-15 characters)!
+          Author name can only contain letters and numbers (3-25 characters)!
         </div>
       </div>
     </div>
@@ -56,10 +57,19 @@
       </div>
     </div>
   </div>
-  <div class="form-group">
-    <button [disabled]="!authorForm.form.valid" class="btn btn-primary"
-            (click)="createAuthor()">Create</button>
-  </div>
+  </fieldset>
+  <fieldset class="fieldset">
+    <div class="form-group">
+      <div *ngIf="author.authorId == null">
+        <button [disabled]="!authorForm.form.valid" class="btn btn-primary"
+                (click)="createAuthor()">Create</button>
+      </div>
+      <div *ngIf="author.authorId != null">
+        <button [disabled]="!authorForm.form.valid" class="btn btn-success"
+                (click)="updateAuthor()">Update</button>
+      </div>
+    </div>
+  </fieldset>
 </form>
 </body>
 </html>
