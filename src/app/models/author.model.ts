@@ -1,3 +1,5 @@
+import {Book} from './book.model';
+
 export class Author {
 
   authorId: BigInteger;
@@ -6,6 +8,6 @@ export class Author {
 
   surname: string;
 
-  books: string;
+  books: Book[] = [];
 
 }

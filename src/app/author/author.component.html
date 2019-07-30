@@ -21,7 +21,7 @@
     <td></td>
     <td>{{author.name}}</td>
     <td>{{author.surname}}</td>
-    <td><a routerLink="/books">{{author.books}}</a></td>
+    <td><a routerLink="/books"><li *ngFor="let book of author.books">{{book.title}}</li></a></td>
     <td><button class="btn btn-info" routerLink="/updateAuthor/{{author.authorId}}" type="submit">Edit</button></td>
     <td><button class="btn btn-danger" type="submit" (click)="deleteById(author)">Delete</button></td>
   </tr>
